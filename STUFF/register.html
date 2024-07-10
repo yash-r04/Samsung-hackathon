@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>register</title>
+</head>
+<body>
+   <body>
+      <h2>Registration Form</h2>
+      <form id="registrationForm">
+         <label for="username">Username:</label><br>
+         <input type="text" id="username" name="username"><br>
+         <label for="email">Email:</label><br>
+         <input type="email" id="email" name="email"><br>
+         <label for="aadhar">Aadhar:</label><br>
+         <input type="number" id="aadhar" name="aadhar"><br><br>
+         <input type="button" value="Submit" onclick="submitForm()">
+      </form>
+   
+      <script>
+         function submitForm() {
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const aadhar = document.getElementById('aadhar').value;
+   
+            console.log('Submitting form with data:', { username, email, aadhar });
+   
+            fetch('http://localhost:3000/register', {
+               method: 'POST',
+               headers: {
+                  'Content-Type': 'application/json'
+               },
+               mode: 'no-cors', // Set request mode to 'no-cors'
+               body: JSON.stringify({ username, email, aadhar })
+            })
+            .then(response => {
+               // Since 'no-cors' mode, response will be opaque
+               console.log('Response status:', response.status);
+               alert('Registration request sent! Check console for details.');
+            })
+            .catch(error => {
+               console.error('Error:', error);
+               alert('Registration failed! Please try again.'); // Handle error gracefully
+            });
+         }
+      </script>
+   </body>
+</body>
+</html>
