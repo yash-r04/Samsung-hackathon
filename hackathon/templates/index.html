@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drop Location Form</title>
+    <link rel="stylesheet" href="static\index.css">
+</head>
+<body>
+    <h2>Drop Location</h2>
+    <!-- templates/index.html -->
+<form method="post">
+    Latitude: <input type="text" name="latitude"><br>
+    Longitude: <input type="text" name="longitude"><br>
+    <input type="submit" value="Submit">
+</form>
+<h1>Find Your Route</h1>
+<form action="/route" method="get">
+  <label for="start">Start Location:</label>
+  <input type="text" id="start" name="start" required>
+  <br>
+  <label for="end">End Location:</label>
+  <input type="text" id="end" name="end" required>
+  <br>
+  <button type="submit">Find Route</button>
+</form>
+    <!--<form action="/" method="post">
+        Latitude: <input type="text" name="latitude" required><br><br>
+        Longitude: <input type="text" name="longitude" required><br><br>
+        <input type="submit" value="Submit">
+    </form>-->
+</body>
+</html>
